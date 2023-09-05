@@ -8,32 +8,59 @@ export default function LoginPage() {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
   return (
-    <>
-      LoginPage
+    <main className="flex flex-col items-center mx-auto">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="mx-auto max-w-md border-solid border-1 border-black flex flex-col gap-4"
+        className="flex flex-col gap-5 text-center w-1/3"
       >
+        <h3 className="font-bold text-3xl">Giriş Yap</h3>
         <input
-          placeholder="firstname"
-          {...register("firstName")}
-          className="border-solid border rounded-lg p-3 border-black "
+          type="text"
+          placeholder="E-posta"
+          {...register("Eposta", { required: true })}
+          className="border border-solid rounded-2xl p-3"
         />
         <input
-          placeholder="surname"
-          {...register("lastName")}
-          className="border-solid border rounded-lg p-3 border-black"
+          type="password"
+          placeholder="Şifre"
+          {...register("Şifre", { min: 4 })}
+          className="border border-solid rounded-2xl p-3"
         />
-        <select
-          {...register("gender")}
-          className="border-solid border rounded-lg p-3 border-black"
+        <span className="text-right text-sm font-bold">
+          Parolanı mı Unuttun?
+        </span>
+        <div className="flex flex-col gap-2">
+          <button
+            type="submit"
+            className="border border-solid w-full mx-auto p-4 bg-black text-white font-bold text-sm md:text-xl rounded-lg"
+          >
+            Oturum Aç
+          </button>
+          <button
+            type="submit"
+            className="border border-solid w-full mx-auto p-4 bg-blue-600 text-white font-bold text-sm md:text-xl rounded-lg"
+          >
+            Facebook ile devam et
+          </button>
+        </div>
+
+        <div className="my-3 flex flex-row justify-between">
+          <hr className="w-2/5 mt-3" />
+          <text>veya</text>
+          <hr className="w-2/5 mt-3" />
+        </div>
+
+        <h3 className="font-bold md:text-3xl text-sm">Hesabım Yok</h3>
+        <button
+          type="submit"
+          className="border border-solid w-full mx-auto my-10 p-4 bg-black text-white font-bold text-sm md:text-xl rounded-lg"
         >
-          <option value="female">female</option>
-          <option value="male">male</option>
-          <option value="other">other</option>
-        </select>
-        <input type="submit" />
+          Bir hesap oluştur
+        </button>
+        <a href="/" className="text-sm font-medium">
+          Üye olmadan devam et
+        </a>
       </form>
-    </>
+    </main>
   );
 }

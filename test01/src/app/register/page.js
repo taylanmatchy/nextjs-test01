@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Button } from "antd";
+import axios from "axios";
 
 export default function RegisterPage() {
   const {
@@ -10,8 +10,17 @@ export default function RegisterPage() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(errors);
+  const onSubmit = (data) => {
+    // onSubmit fonksiyonunun parametresi data olarak eklenmeli
+    axios
+      .post(`http://localhost:3000/api/auth/register`, data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <main className="flex flex-col items-center mx-auto">
@@ -22,12 +31,14 @@ export default function RegisterPage() {
           placeholder="E-posta"
           {...register("Eposta", { required: true })}
           className="border border-solid rounded-2xl p-3"
+          name="Eposta"
         />
         <input
           type="password"
           placeholder="Şifre"
-          {...register("Şifre", { min: 4 })}
+          {...register("Sifre", { min: 4 })}
           className="border border-solid rounded-2xl p-3"
+          name="Sifre"
         />
         <span className="text-right text-sm font-bold">
           Parolanı mı Unuttun?
@@ -38,40 +49,51 @@ export default function RegisterPage() {
             placeholder="İsim"
             {...register("İsim", { required: true })}
             className="border border-solid rounded-2xl p-3 w-full"
+            name="İsim"
           />
           <input
             type="text"
             placeholder="Soyisim"
             {...register("Soyisim", { required: true })}
             className="border border-solid rounded-2xl p-3 w-full"
+            name="Soyisim"
           />
         </div>
 
         <input
           type="number"
           placeholder="Cep Telefonu"
-          {...register("Cep Telefonu", {})}
+          {...register("Cep_Telefonu", {})}
           className="border border-solid rounded-2xl p-3"
+          name="Cep_Telefonu"
         />
         <input
           type="text"
           placeholder="Adres"
           {...register("Adres", {})}
           className="border border-solid rounded-2xl p-3"
+          name="Adres"
         />
         <input
           type="text"
           placeholder="Daha Fazla Bilgi (opsiyonel)"
-          {...register("Daha Fazla Bilgi", {})}
+          {...register("Daha_Fazla_Bilgi", {})}
           className="border border-solid rounded-2xl p-3"
+          name="Daha_Fazla_Bilgi"
         />
         <select
           {...register("İl")}
           className="border border-solid rounded-2xl p-3"
         >
-          <option value="İstanbul">İstanbul</option>
-          <option value="İzmir">İzmir</option>
-          <option value="Ankara">Ankara</option>
+          <option name="İstanbul" value="İstanbul">
+            İstanbul
+          </option>
+          <option name="İzmir" value="İzmir">
+            İzmir
+          </option>
+          <option name="Ankara" value="Ankara">
+            Ankara
+          </option>
         </select>
         <select
           {...register("İlçe")}
@@ -85,7 +107,8 @@ export default function RegisterPage() {
           className="border border-solid rounded-2xl p-3"
           type="number"
           placeholder="Posta Kodu"
-          {...register("Posta Kodu", {})}
+          {...register("PostaKodu", {})}
+          name="PostaKodu"
         />
         <div className="flex flex-col">
           <div className="flex flex-row gap-2">
@@ -94,7 +117,7 @@ export default function RegisterPage() {
               type="radio"
               value="Pazarlama amaçlı elektronik ileti iznini onaylıyorum."
             />
-            <label for="news">
+            <label htmlFor="news">
               Pazarlama amaçlı elektronik ileti iznini onaylıyorum.
             </label>
           </div>
@@ -104,7 +127,7 @@ export default function RegisterPage() {
               type="radio"
               value="Pazarlama ve tanıtım amaçlı sms iznini onaylıyorum."
             />
-            <label for="sms">
+            <label htmlFor="sms">
               Pazarlama ve tanıtım amaçlı sms iznini onaylıyorum.
             </label>
           </div>
@@ -114,7 +137,7 @@ export default function RegisterPage() {
               type="radio"
               value="Kişisel Veri Aydınlatma Metnini okudum ve Üyelik Sözleşmesini kabul ediyorum."
             />
-            <label for="KVKK">
+            <label htmlFor="KVKK">
               <strong>
                 <u>Kişisel Veri Aydınlatma Metni</u>
               </strong>

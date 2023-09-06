@@ -3,10 +3,16 @@
 import React from "react";
 import { Button } from "antd";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 export default function LoginPage() {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    axios
+      .post("http://localhost:3000/api/auth/login", data)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  };
   return (
     <main className="flex flex-col items-center mx-auto">
       <form

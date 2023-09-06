@@ -1,17 +1,19 @@
-const { default: fakeData } = require("../fakeData");
 import jwt from "jsonwebtoken";
 
 export const generateToken = (payload) => {
   const secret = process.env.NEXTAUTH_SECRET;
-  return jwt.sign(payload, secret, { expiresIn: "15m" });
+  return jwt.sign(payload, secret, { expiresIn: "1d" });
 };
 
-export const verifyToken = (token) => {
+export const getDataFromToken = async (request) => {
   try {
-    return jwt.verify(token, secret);
-  } catch (error) {
-    return null;
+    const secret = await process.env.NEXTAUTH_SECRET;
+    const token = (await request.cookies.get("token")?.value) || "";
+    const decodedJWT = jwt.verify(token, secret);
+    return await decodedJWT.Eposta;
+  } catch (err) {
+    throw new Error(err.message);
   }
 };
 
-module.exports = { generateToken, verifyToken };
+module.exports = { generateToken, getDataFromToken };

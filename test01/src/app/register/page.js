@@ -46,10 +46,10 @@ export default function RegisterPage() {
         <div className="md:flex md:flex-row gap-3">
           <input
             type="text"
-            placeholder="İsim"
-            {...register("İsim", { required: true })}
+            placeholder="Isim"
+            {...register("Isim", { required: true })}
             className="border border-solid rounded-2xl p-3 w-full"
-            name="İsim"
+            name="Isim"
           />
           <input
             type="text"
@@ -82,7 +82,7 @@ export default function RegisterPage() {
           name="Daha_Fazla_Bilgi"
         />
         <select
-          {...register("İl")}
+          {...register("Il")}
           className="border border-solid rounded-2xl p-3"
         >
           <option name="İstanbul" value="İstanbul">
@@ -96,7 +96,7 @@ export default function RegisterPage() {
           </option>
         </select>
         <select
-          {...register("İlçe")}
+          {...register("Ilce")}
           className="border border-solid rounded-2xl p-3"
         >
           <option value="X">X</option>

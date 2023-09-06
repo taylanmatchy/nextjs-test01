@@ -29,7 +29,7 @@ export default function LoginPage() {
         <input
           type="password"
           placeholder="Şifre"
-          {...register("Şifre", { min: 4 })}
+          {...register("Sifre", { min: 4 })}
           className="border border-solid rounded-2xl p-3"
         />
         <span className="text-right text-sm font-bold">

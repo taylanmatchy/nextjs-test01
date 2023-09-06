@@ -1,5 +1,8 @@
+import { v4 as uuidv4 } from "uuid";
+
 const fakeData = [
   {
+    id: uuidv4(),
     Eposta: "taylan@example.com",
     Sifre: 1234,
     Isim: "Taylan",
@@ -15,6 +18,7 @@ const fakeData = [
     KVKK: "KVKK",
   },
   {
+    id: uuidv4(),
     Eposta: "test@example.com",
     Sifre: 12345,
     Isim: "test",

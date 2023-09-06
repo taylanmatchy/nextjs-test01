@@ -23,7 +23,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <main className="flex flex-col items-center mx-auto">
+    <main className="flex flex-col items-center mx-auto my-10">
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
         <h3 className="font-bold text-3xl">Hesap Oluştur</h3>
         <input

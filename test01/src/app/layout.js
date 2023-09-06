@@ -1,3 +1,4 @@
+import Header from "@/components/Header/Header";
 import "./globals.css";
 import { Inter, Roboto_Mono } from "next/font/google";
 
@@ -12,8 +13,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="tr">
-      <body suppressHydrationWarning={true} className={inter.className}>
-        <nav>My Navbar</nav>
+      <body className={inter.className}>
+        <Header />
         {children}
       </body>
     </html>

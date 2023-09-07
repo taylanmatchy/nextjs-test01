@@ -1,6 +1,6 @@
-import Header from "@/components/Header/Header";
 import "./globals.css";
 import { Inter, Roboto_Mono } from "next/font/google";
+import Footer from "@/components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 const roboto_mono = Roboto_Mono({ subsets: ["cyrillic"], weight: "300" });
@@ -14,8 +14,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr">
       <body className={inter.className}>
-        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

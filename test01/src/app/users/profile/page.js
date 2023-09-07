@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 
 import { Inter, Roboto_Mono } from "next/font/google";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers, selectAllUsers } from "@/redux/features/userSlice";
 
 const inter = Inter({ subsets: ["greek-ext"], weight: "400" });
 
@@ -15,18 +17,18 @@ export const metadata = {
 };
 
 export default function UsersProfile() {
-  const [userData, setUserData] = useState([]);
-
+  const dispatch = useDispatch();
+  const userData = useSelector(selectAllUsers);
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/api/auth/users")
-      .then((response) => setUserData(response.data.data));
-  }, [userData]);
+    dispatch(fetchUsers());
+  }, [dispatch]);
+
+  //console.log("profile", userData);
 
   return (
     <>
-      {userData.length > 0 &&
-        userData.map((users) => (
+      {userData.data &&
+        userData.data.map((users) => (
           <h2 key={users.Eposta}>{users.Isim} Profil Hesabı</h2>
         ))}
     </>

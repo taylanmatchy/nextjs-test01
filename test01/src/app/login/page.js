@@ -17,7 +17,7 @@ export default function LoginPage() {
     <main className="flex flex-col items-center mx-auto">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-5 text-center w-1/3"
+        className="w-full flex flex-col gap-5 text-center"
       >
         <h3 className="font-bold text-3xl">Giriş Yap</h3>
         <input

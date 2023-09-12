@@ -14,11 +14,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="tr">
-      <body className={inter.className}>
-        <Providers>
-          {children}
-          <Footer />
-        </Providers>
+      <body suppressHydrationWarning={true} className={inter.className}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

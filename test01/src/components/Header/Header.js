@@ -38,10 +38,10 @@ export default function Header() {
         </div>
         <div className="flex flex-row gap-3">
           <Image src={Shipped} alt="truck" />
-          <Image src={Location} alt="truck" />
-          <Image src={User} alt="truck" />
-          <Image src={Rectangle} alt="truck" />
-          <Image src={Shopping_Bag} alt="truck" />
+          <Image src={Location} alt="location" />
+          <Image src={User} alt="User" />
+          <Image src={Rectangle} alt="Straight Line" />
+          <Image src={Shopping_Bag} alt="Shopping Cart" />
         </div>
       </header>
     </main>

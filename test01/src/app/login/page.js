@@ -25,8 +25,8 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="flex flex-col sm:flex sm:flex-row sm:items-center">
-      <section className="sm:h-screen sm:w-1/2">
+    <main className="flex flex-col sm:flex sm:flex-row sm:items-center h-screen">
+      <section className="sm:w-1/2">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col gap-10 p-10"

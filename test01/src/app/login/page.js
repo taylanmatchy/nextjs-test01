@@ -36,13 +36,13 @@ export default function LoginPage() {
             type="text"
             placeholder="E-posta"
             {...register("Eposta", { required: true })}
-            className="border border-solid rounded-xl p-3"
+            className="focus:outline-none border border-solid rounded-xl p-3"
           />
           <input
             type="password"
             placeholder="Şifre"
             {...register("Sifre", { min: 4 })}
-            className="border border-solid rounded-xl p-3"
+            className="focus:outline-none border border-solid rounded-xl p-3"
           />
           <span className="text-right text-sm text-matchy-orange">
             Şifremi unuttum

@@ -5,10 +5,13 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import Image from "next/image";
 import Advertisement_Banner from "../../../public/Images/Advertisement_Banner.png";
-import Register_Announcement from "../../../public/Images/Register_Announcement.png";
 import Announcement_Banner from "../../../public/Images/Announcement_Banner.png";
 import Announcement_Banner_Small from "../../../public/Images/Announcement_Banner_Small.png";
-import MediaQuery from "react-responsive";
+//to prevent SSR for images
+import dynamic from "next/dynamic";
+const MediaQuery = dynamic(() => import("react-responsive"), {
+  ssr: false,
+});
 
 export default function RegisterPage() {
   const {
@@ -29,22 +32,24 @@ export default function RegisterPage() {
   };
 
   return (
-    <main className="flex flex-col mx-auto h-screen">
+    <main className="h-screen">
       <section className="cursor-pointer mx-auto">
         <MediaQuery maxWidth={414}>
-          <Image
-            src={Announcement_Banner_Small}
-            alt="Announcement_Banner_Small"
-          ></Image>
+          <Image src={Announcement_Banner_Small} alt="Campaign Banner" />
+          <h2 className="text-center font-bold text-2xl mb-5 mt-5">MATCHY</h2>
         </MediaQuery>
         <MediaQuery minWidth={414}>
-          <Image src={Announcement_Banner} alt="Announcement_Banner"></Image>
+          <Image
+            src={Announcement_Banner}
+            alt="Campaign Announcement"
+            className="w-full"
+          />
         </MediaQuery>
       </section>
-      <section className="w-full flex flex-col lg:flex lg:flex-row lg:justify-around">
+      <section className="w-full flex flex-col lg:flex lg:flex-row justify-between">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-20 border-yellow-600"
+          className="flex flex-col gap-20 lg:ml-20"
         >
           <section className="flex flex-col lg:flex lg:flex-row gap-5">
             <div className="flex flex-col gap-10">
@@ -56,7 +61,7 @@ export default function RegisterPage() {
                   type="text"
                   placeholder="Ad Soyad"
                   {...register("AdSoyad", { required: true })}
-                  className="border border-solid rounded-2xl p-3 w-full"
+                  className="focus:outline-none border border-solid rounded-2xl p-3 w-full"
                   name="AdSoyad"
                 />
               </div>
@@ -68,7 +73,7 @@ export default function RegisterPage() {
                   type="text"
                   placeholder="E-posta adresi"
                   {...register("Eposta", { required: true })}
-                  className="border border-solid rounded-2xl p-3"
+                  className="focus:outline-none border border-solid rounded-2xl p-3"
                   name="Eposta"
                 />
               </div>
@@ -99,7 +104,7 @@ export default function RegisterPage() {
                   type="password"
                   placeholder="Referans Kodu"
                   {...register("ReferansKodu", { min: 4 })}
-                  className="border border-solid rounded-2xl p-3"
+                  className="focus:outline-none border border-solid rounded-2xl p-3"
                   name="Sifre"
                 />
               </div>
@@ -113,7 +118,7 @@ export default function RegisterPage() {
                   type="number"
                   placeholder="Cep Telefonu"
                   {...register("Cep_Telefonu", {})}
-                  className="border border-solid rounded-2xl p-3"
+                  className="focus:outline-none border border-solid rounded-2xl p-3"
                   name="Cep_Telefonu"
                 />
               </div>
@@ -138,29 +143,29 @@ export default function RegisterPage() {
                   type="text"
                   placeholder="Şirket İsmi"
                   {...register("SirketIsmi", {})}
-                  className="border border-solid rounded-2xl p-3"
+                  className="focus:outline-none border border-solid rounded-2xl p-3"
                   name="SirketIsmi"
                 />
               </div>
             </div>
           </section>
-          <div className="flex flex-col lg:flex lg:flex-row lg:items-center gap-2 mb-6">
-            <div className="flex flex-row gap-2">
+          <div className="flex flex-col lg:flex lg:flex-row mb-6 gap-3">
+            <div className="flex flex-row gap-2 items-center">
               <input
                 {...register("news")}
                 type="checkbox"
-                value="Aydinlanma Metnini Okudum ve anladım."
+                value="focus:outline-none Aydinlanma Metnini Okudum ve anladım."
               />
               <label htmlFor="news" className="text-sm">
                 <strong className="text-matchy-orange underline">
                   Aydınlanma Metni
                 </strong>
-                'ni Okudum ve anladım.
+                'ni okudum ve anladım.
               </label>
             </div>
             <button
               type="submit"
-              className="lg:w-1/2 border border-solid p-4 bg-black text-white font-bold text-xl rounded-lg"
+              className="w-full md:w-1/2 p-4 bg-black text-white font-bold text-xl rounded-lg"
             >
               Hesap Oluştur
             </button>
@@ -168,7 +173,12 @@ export default function RegisterPage() {
         </form>
 
         <section className="flex flex-col gap-10">
-          <Image src={Advertisement_Banner} width={500} height={500}></Image>
+          <Image
+            src={Advertisement_Banner}
+            width={500}
+            height={500}
+            alt="Advertisement_Banner"
+          ></Image>
           <h2 className="text-2xl lg:text-right mt-5 font-bold">MATCHY</h2>
         </section>
       </section>

@@ -1,49 +1,48 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { BsSearch } from "react-icons/bs";
 import Image from "next/image";
-import Shipped from "../../../public/Images/Shipped.svg";
-import Location from "../../../public/Images/Location.svg";
-import Rectangle from "../../../public/Images/Rectangle.svg";
-import User from "../../../public/Images/User.svg";
-import Shopping_Bag from "../../../public/Images/Shopping_Bag.svg";
-import Br_Logo from "../../../public/Images/Br_Logo.png";
+import Home from "../../../public/Images/Home.png";
+import Notification from "../../../public/Images/Notification.png";
+import Hamburger from "../../../public/Images/Hamburger.png";
+import Navbar from "../Navbar/Navbar";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const onSearch = (value) => console.log(value);
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleHamburgerMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <main>
-      <div className="border border-solid bg-[#282828] text-center p-2 text-white">
-        Lorem ipsum dolor sit amet dolor lorem ipsum
-      </div>
-      <header className="flex flex-row justify-around items-center p-5">
-        <Link href="/" className="">
-          <Image src={Br_Logo} alt="Brandy's Logo"></Image>
-        </Link>
-        <div className="w-1/3 flex flex-row bg-[#E9E7E7] border border-solid rounded-3xl">
-          <button className="border border-solid bg-[#E9E7E7] p-3 rounded-3xl ">
-            <BsSearch
-              style={{
-                fontSize: "2rem",
-              }}
-            />
-          </button>
-          <input
-            placeholder="Ürün Arayın"
-            className="w-full border border-solid rounded-3xl bg-[#E9E7E7] p-3 focus:outline-none"
-          ></input>
+    <main className="">
+      <section className="flex flex-row justify-between gap-10 items-center border-b border-solid">
+        <div className="sm:flex sm:flex-row justify-between items-end  p-3">
+          <h1 className="max-sm:relative text-2xl font-extrabold">MATCHY</h1>
+          <span className="max-sm:absolute max-sm:top-10 max-sm:left-16 sm:text-sm text-matchy-orange">
+            Seller Central
+          </span>
         </div>
-        <div className="flex flex-row gap-3">
-          <Image src={Shipped} alt="truck" />
-          <Image src={Location} alt="location" />
-          <Image src={User} alt="User" />
-          <Image src={Rectangle} alt="Straight Line" />
-          <Image src={Shopping_Bag} alt="Shopping Cart" />
+        <div className="flex flex-row gap-8 items-center">
+          <Image src={Home} alt="home_icon"></Image>
+          <Navbar />
+          <Image
+            src={Notification}
+            alt="notification_icon"
+            className=""
+          ></Image>
+          <RxHamburgerMenu
+            onClick={toggleHamburgerMenu}
+            className="md:hidden hover:text-matchy-orange w-4 h-4"
+          />
         </div>
-      </header>
+      </section>
+      {isMenuOpen && <HamburgerMenu />}
     </main>
   );
 }

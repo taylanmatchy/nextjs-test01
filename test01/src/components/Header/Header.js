@@ -21,7 +21,7 @@ export default function Header() {
 
   return (
     <main className="">
-      <section className="flex flex-row justify-between gap-10 items-center border-b border-solid">
+      <section className="flex flex-row justify-between gap-10 items-center sm:border-b sm:border-solid">
         <div className="sm:flex sm:flex-row justify-between items-end  p-3">
           <h1 className="max-sm:relative text-2xl font-extrabold">MATCHY</h1>
           <span className="max-sm:absolute max-sm:top-10 max-sm:left-16 sm:text-sm text-matchy-orange">

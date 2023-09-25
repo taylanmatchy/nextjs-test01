@@ -17,6 +17,7 @@ module.exports = {
       colors: {
         "matchy-orange": "#EC5C2D",
         "matchy-black": "#282828",
+        "matchy-gray": "#C2C1C1",
       },
     },
   },

@@ -11,8 +11,8 @@ import Question from "../../../public/Images/Question.png";
 
 export default function Navbar() {
   return (
-    <main className="max-sm:hidden">
-      <nav className="sm:flex sm:flex-row gap-5 items-center">
+    <main className="max-lg:hidden">
+      <nav className="lg:flex lg:flex-row gap-5 items-center">
         <Dropdown>
           <DropdownTrigger>
             <span className="flex flex-row gap-3 items-center">

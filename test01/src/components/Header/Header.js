@@ -21,14 +21,14 @@ export default function Header() {
 
   return (
     <main className="">
-      <section className="flex flex-row justify-between gap-10 items-center sm:border-b sm:border-solid">
-        <div className="sm:flex sm:flex-row justify-between items-end  p-3">
-          <h1 className="max-sm:relative text-2xl font-extrabold">MATCHY</h1>
-          <span className="max-sm:absolute max-sm:top-10 max-sm:left-16 sm:text-sm text-matchy-orange">
+      <section className="flex flex-row justify-between gap-10 items-center lg:border-b lg:border-solid">
+        <div className="lg:flex lg:flex-row justify-between items-end  p-3">
+          <h1 className="max-lg:relative text-2xl font-extrabold">MATCHY</h1>
+          <span className="max-lg:absolute max-lg:top-10 max-lg:left-16 lg:text-sm text-matchy-orange">
             Seller Central
           </span>
         </div>
-        <div className="flex flex-row gap-8 items-center">
+        <div className="flex flex-row gap-8 items-center mr-3">
           <Image src={Home} alt="home_icon"></Image>
           <Navbar />
           <Image
@@ -38,7 +38,7 @@ export default function Header() {
           ></Image>
           <RxHamburgerMenu
             onClick={toggleHamburgerMenu}
-            className="md:hidden hover:text-matchy-orange w-4 h-4"
+            className="lg:hidden hover:text-matchy-orange w-4 h-4"
           />
         </div>
       </section>

@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Image from "next/image";
-import Advertisement_Banner from "../../../public/Images/Advertisement_Banner.png";
-import Announcement_Banner from "../../../public/Images/Announcement_Banner.png";
-import Announcement_Banner_Small from "../../../public/Images/Announcement_Banner_Small.png";
+import Advertisement_Banner from "../../../../public/Images/Advertisement_Banner.png";
+import Announcement_Banner from "../../../../public/Images/Announcement_Banner.png";
+import Announcement_Banner_Small from "../../../../public/Images/Announcement_Banner_Small.png";
 //to prevent SSR for images
 import dynamic from "next/dynamic";
 const MediaQuery = dynamic(() => import("react-responsive"), {

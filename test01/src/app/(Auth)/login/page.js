@@ -4,10 +4,10 @@ import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
 import axios from "axios";
-import Login_MainAdvertisement from "../../../public/Images/Login_MainAdvertisement.png";
-import Services from "../../../public/Images/Services.png";
-import Prod_Advert from "../../../public/Images/Prod_Advert.png";
-import Influencers from "../../../public/Images/Influencers.png";
+import Login_MainAdvertisement from "../../../../public/Images/Login_MainAdvertisement.png";
+import Services from "../../../../public/Images/Services.png";
+import Prod_Advert from "../../../../public/Images/Prod_Advert.png";
+import Influencers from "../../../../public/Images/Influencers.png";
 import { Carousel } from "antd";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
@@ -108,7 +108,7 @@ export default function LoginPage() {
             İleri
           </IoIosArrowBack>
         </div>
-        <div className="flex flex-row gap-5 justify-between">
+        <div className="flex flex-wrap gap-5 justify-between">
           <Image src={Services} alt="Services Advertisement"></Image>
           <Image src={Prod_Advert} alt="Production Advertisement"></Image>
           <Image src={Influencers} alt="Influencer Amount"></Image>

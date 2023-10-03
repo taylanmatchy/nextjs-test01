@@ -1,13 +1,12 @@
+//@ts-nocheck
 import Header from "@/components/Header/Header";
 import React from "react";
 
-const Summary = () => {
+export default function Naviglayout({ children }) {
   return (
-    <main>
+    <div>
       <Header />
-      özet sayfası
-    </main>
+      {children}
+    </div>
   );
-};
-
-export default Summary;
+}
